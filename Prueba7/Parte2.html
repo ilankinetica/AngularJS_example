@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<!-- PRUBA: COMO HACER UN SERVICIO -->
+<html lang="en-US" ng-app="miapp">
+	<head>
+		<meta charset="UT-8">
+		<title></title>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+		<script type="text/javascript" src="Servicios.js"></script> <!-- agrego la referencia a mis servicios -->
+		<script type="text/javascript">
+			var app = angular.module("miapp", ["servicios"]); //hago referencia al servicio en el otro archivo
+			//borre la parte de servicios porque ya no va  ahacer falta
+			app.controller("miController", function($scope, servicioJugadores)
+				$scope.jugadores = servicioJugadores.get();
+			});
+		</script>
+		<title></title>
+	</head>
+	<body ng-controller="miController">
+		<ul>
+			<li ng-repeat="item in jugadores">
+				<div>
+					{{item.lastname}}, {{item.name}} ({{item.number}})
+				</div>
+			</li>
+		</ul>
+	</body>
+</html>

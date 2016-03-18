@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<!-- PRUEBA: AGREGAR EVENTOS -->
+<html lang="en-US" ng-app="iteraciones">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+		<script type="text/javascript">
+			var app = angular.module("iteraciones", []);
+			app.controller("miController", function($scope)
+			{
+				$scope.jugadores = ["lionel","gonzalo","ezequiel"];
+				$scope.agregarJugador=function() //creo la funcion que agrega jugadores
+				{
+					$scope.jugadores.push($scope.nuevoJugador); //lo agrego al array
+					$scope.nuevoJugador=""; //lo vuelvo a cero
+				};	
+			});
+		</script>
+	</head>
+	<body ng-controller="miController">
+		<ul>
+			<li ng-repeat = "item in jugadores">
+				{{item}}
+			</li>
+		</ul><br>
+		<input type="text" ng-model="nuevoJugador"></input><br> <!-- text box para agregar el jugador -->
+		<input type="button" value="agregar" ng-click="agregarJugador()"></input><br> <!-- input con el nombre ng-click que seria un onClick que llama a la funcion -->
+	</body>
+</html>

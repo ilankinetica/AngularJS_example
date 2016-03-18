@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<!-- PRUEBA: COMO CREAR UN CONTROLLER -->
+<html lang="en-US" ng-app="miApp"> <!-- le digo que este modulo esta controlado por miApp controller -->
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+		<script type="text/javascript"> //aca voy a escribir mi controller
+			var miApp = angular.module("miApp", []); //la variable angular existe porque declarado el script de angular en el archivo. Entre los corchetes vamos a inyetar dependencias leugo
+			miApp.controller("miController", function($scope) //(nombre, le paso el model. si o si lo llamos scope)
+			{
+				$scope.saludo="Pon tu nombre"; //la variable saludo dentro de scope tiene ese valor
+			});
+		</script>
+	</head>
+	<body ng-controller="miController"> <!-- ng-controller: le digo que controller va a manejar este model -->
+		<input type="text" ng-model="saludo"></input><br>
+		{{'Hola ' + saludo + '.'}}
+	</body>
+</html>

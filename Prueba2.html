@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<!-- PRUEBA: COMO CREAR UN MODELO -->
+<html lang="en-US" ng-app>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+	</head>
+	<body>
+		<input type="text" ng-model="saludo"></input><br> <!-- creamos un input que no tiene ni id ni nombre, sino que tiene ng-model. Entonces "saludo" va a ser nuestro modelo en este caso -->
+		{{'Hola ' + saludo + '.'}} <!-- Y lo llamamos dentro de nuestro codigo de AngularJS -->
+	</body>
+</html>

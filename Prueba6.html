@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<!-- PRUEBA: AGREGAR FILTROS -->
+<html lang="en-US" ng-app="iteraciones">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+		<script type="text/javascript">
+			var app = angular.module("iteraciones", []);
+			app.filter("trim",function() //creo un filtro (nombre, retorno)
+				{
+					return function(value) //retorna el valor sobre el que va a ctuar
+					{
+						return value.substring(0,5) + "..."; //recorta el valor y lo devuelve
+					};
+				});
+			app.controller("miController", function($scope)
+				{
+					$scope.jugadores = ["lionel","gonzalo","ezequiel"];
+					$scope.agregarJugador=function()
+					{
+						$scope.jugadores.push($scope.nuevoJugador);
+						$scope.nuevoJugador="";
+					};	
+				});
+		</script>
+	</head>
+	<body ng-controller="miController">
+		<input type="text" ng-model="query"></input>Filtrar<br> <!-- input asociado a nuestor filtor con el model: query -->
+		<a href="" ng-click="orden=!orden">Ordenar</a> <!-- cada vez que lo cambie va a hacer true->fale->true --><br>
+		<ul>
+			<li ng-repeat = "item in jugadores | filter:query | orderBy:item:orden"> <!-- le agregamos un filtro a nuestro list | le ponemos ordenar al item de manera "orden"-->
+				{{item | trim}} <!-- le agrego el filtro al trim -->
+			</li>
+		</ul><br>
+		<input type="text" ng-model="nuevoJugador"></input><br>
+		<input type="button" value="agregar" ng-click="agregarJugador()"></input><br>
+	</body>
+</html>

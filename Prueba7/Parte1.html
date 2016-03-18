@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<!-- PRUBA: COMO HACER UN SERVICIO -->
+<html lang="en-US" ng-app="miapp">
+	<head>
+		<meta charset="UT-8">
+		<title></title>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+		<script type="text/javascript">
+			var app = angular.module("miapp", []);
+			app.factory("servicioJugadores", function() { //factory para cerar el servicio, y la funcion (o puedo inyectarle algo)
+					return { //devuelve el srvicio
+						get: function() { //creo el metodo get
+							return [
+								{name:'lionel', lastname: 'messi', number:10},
+								{name:'gonzalo', lastname: 'higuain', number:9},
+								{name:'ezequiel', lastname: 'lavezzi', number:8},
+								{name:'angel', lastname: 'di maria', number:7}
+							]; //un array de objetos
+						}
+					};
+				});
+			app.controller("miController", function($scope, servicioJugadores) { //poniendo el nombre srvicioJugadores aca ya lo puedo invocar
+				$scope.jugadores = servicioJugadores.get(); //invoco el metodo
+			});
+		</script>
+		<title></title>
+	</head>
+	<body ng-controller="miController">
+		<ul>
+			<li ng-repeat="item in jugadores">
+				<div>
+					{{item.lastname}}, {{item.name}} ({{item.number}}) <!-- imprimo las propiedades de mi objetos -->
+				</div>
+			</li>
+		</ul>
+	</body>
+</html>
+<!-- PERO QUEIRO LOS SERIVICOS AFUERA DE MI ARCHIVO!!! -->

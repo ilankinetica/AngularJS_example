@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<!-- PRUEBA: COMO CREAR ITERACIONES -->
+<html lang="en-US" ng-app="iteraciones">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+		<script type="text/javascript">
+			var app = angular.module("iteraciones", []);
+			app.controller("miController", function($scope)
+			{
+				$scope.jugadores = ["lionel","gonzalo","exzequiel"]; //creo un array con strings para mostrar
+			});
+		</script>
+	</head>
+	<body ng-controller="miController">
+		<ul>
+			<li ng-repeat = "item in jugadores"> <!-- va a hacer un repeat de jugadores -->
+				{{item}} <!-- mestro item -->
+			</li>
+		</ul>
+	</body>
+</html>
